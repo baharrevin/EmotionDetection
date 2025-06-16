@@ -1,0 +1,21 @@
+Özellik	                    OpenCV Haar Cascade	                                        MediaPipe Face Detection
+Algoritma Temeli	        Haar özellikleri ve AdaBoost (klasik yöntem)	            Derin öğrenme tabanlı (CNN tabanlı hızlı model)
+Doğruluk	                Orta düzey, bazen yanlış pozitif veya negatif olabilir	    Daha yüksek doğruluk ve stabilite
+Hız	                        Çok hızlı, düşük donanımda bile çalışır	                    Çok hızlı, optimize edilmiş derin öğrenme modeli
+Yüz Özellikleri	            Sadece yüz kutusu (dikdörtgen)	                            Yüz kutusu ve bazı yüz işaretleri (landmark) ile destek
+Işık-Poz Değişimi Dayanım   ışık değişimlerinde ve farklı pozlarda başarısı azalabilir	Daha dayanıklı, zorlu koşullarda daha iyi çalışır
+Model Eğitimi ve Kullanımı	Önceden eğitilmiş XML dosyası ile çalışır, değiştirilemez	Model olarak TensorFlow Lite kullanır, geliştirilebilir ve güncellenebilir
+Platform Desteği	        Her yerde çalışır (Windows, Mac, Linux)	                    Mobil ve masaüstü platformlarda optimize (Android, iOS, Web)
+
+3. Özet ve Projende Hangisini Kullanmalısın?
+Haar Cascade: Basit, hızlı, kolay uygulanabilir. Küçük projeler, öğrenme amaçlı iyi. Ancak doğruluk ve dayanıklılık sınırlı.
+MediaPipe Face Detection: Daha gelişmiş, gerçek zamanlı, yüksek doğrulukta ve dayanıklı. Duygu tanıma veya daha karmaşık yüz analizlerinde tercih edilir.
+
+4. Neden frame = cv2.flip(frame,1) Kullanıyoruz?
+Kamera görüntüsünü yatay olarak aynalar. Böylece görüntü, kullanıcıya daha doğal “ayna etkisi” sağlar.
+Selfie moduna benzer bir his verir.
+
+5. Renk Dönüşümü (BGR -> RGB)
+OpenCV görüntüleri BGR formatında işler.
+MediaPipe ise RGB formatı kullanır, bu yüzden dönüştürmek gerekir.
+Bu dönüşüm olmadan model doğru çalışmaz.
